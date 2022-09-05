@@ -7,10 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "prettier:code-fix": "prettier --write",
-    "lint:code-fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
-    "lint:code": "eslint --ext .js,.jsx,.ts,.tsx src",
-    "lint:style": "stylelint **/*.(ts|tsx)",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
+    "prettier": "prettier --write",
     "postinstall": "husky install"
   },
   "dependencies": {
@@ -41,7 +40,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "yarn lint:code-fix --cache"
+      "yarn lint:fix --cache"
     ]
   },
   "engines": {
