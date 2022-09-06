@@ -9,23 +9,24 @@ function MainPage() {
   return (
     <MainLayout>
       <RefreshButton onClick={() => setCount(() => count + 1)} />
-      <TestFramerComponent />
+      <Circle />
     </MainLayout>
   );
 }
 
 const MainLayout = styled.main`
   ${({ theme }) => css`
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
     background-color: ${theme.palette.orange200};
   `}
+`;
+
+const Circle = styled(TestFramerComponent)`
+  position: fixed;
+  top: 50%;
+  right: 50%;
 `;
 
 export default MainPage;
