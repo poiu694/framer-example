@@ -3,7 +3,11 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import { PropsWithChildren } from 'react';
 
-function SideMenuList({ children }: PropsWithChildren) {
+interface Props {
+  isShowContent: boolean;
+}
+
+function SideMenuList({ isShowContent, children }: PropsWithChildren<Props>) {
   return (
     <SideMenuUl
       variants={{
@@ -14,14 +18,17 @@ function SideMenuList({ children }: PropsWithChildren) {
           transition: { staggerChildren: 0.05, staggerDirection: -1 },
         },
       }}
+      isShowContent={isShowContent}
     >
       {children}
     </SideMenuUl>
   );
 }
 
-const SideMenuUl = styled(motion.ul)`
-  ${({ theme }) => css`
+type StyleProps = Pick<Props, 'isShowContent'>;
+
+const SideMenuUl = styled(motion.ul)<StyleProps>`
+  ${({ theme, isShowContent }) => css`
     position: absolute;
     top: 100px;
     left: 12px;
@@ -29,6 +36,7 @@ const SideMenuUl = styled(motion.ul)`
     flex-direction: column;
     gap: ${theme.padding.lg}px;
     z-index: ${theme.zIndex.header};
+    pointer-events: ${isShowContent ? 'default' : 'none'};
   `}
 `;
 

@@ -58,7 +58,7 @@ function SideMenuWithToggleButton() {
     >
       <AnimationBackground variants={sideAnimation} />
       <SideMenuToggleButton isShowContent={isShowContent} onClick={handleClickToggleButton} />
-      <SideMenuList>
+      <SideMenuList isShowContent={isShowContent}>
         {MENUS.map((menu, idx) => (
           <SideMenuItem key={menu.title} color={COLORS[idx % COLORS.length]} menu={menu} />
         ))}
