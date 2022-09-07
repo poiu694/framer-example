@@ -58,6 +58,10 @@ const Wrapper = styled(motion.li)`
 const ButtonWrapper = styled(Button)`
   display: flex;
   align-items: center;
+
+  @media (max-width: ${({ theme }) => theme.size.mobile}px) {
+    width: 95%;
+  }
 `;
 
 const CircleBullet = styled.span`

@@ -72,6 +72,9 @@ const Wrapper = styled(motion.section)`
   top: 0;
   left: 0;
   bottom: 0;
+  @media (max-width: ${theme.size.mobile}px) {
+    width: 100%;
+  }
 `;
 
 const AnimationBackground = styled(motion.div)`
