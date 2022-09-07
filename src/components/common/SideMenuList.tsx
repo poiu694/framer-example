@@ -29,9 +29,9 @@ type StyleProps = Pick<Props, 'isShowContent'>;
 
 const SideMenuUl = styled(motion.ul)<StyleProps>`
   ${({ theme, isShowContent }) => css`
-    position: absolute;
+    position: sticky;
     top: 100px;
-    left: 12px;
+    margin-left: 12px;
     display: flex;
     flex-direction: column;
     gap: ${theme.padding.lg}px;
