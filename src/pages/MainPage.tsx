@@ -1,32 +1,35 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { useState } from 'react';
-import { RefreshButton, TestFramerComponent } from '../components';
+import { CarouselCardList } from '../components';
+import Title from '../components/common/Title';
 
 function MainPage() {
-  const [count, setCount] = useState<number>(0);
-
   return (
     <MainLayout>
-      <RefreshButton onClick={() => setCount(() => count + 1)} />
-      <Circle />
+      <Title title='Infinite Carousel' />
+      <CarouselCardList style={{ width: 500, height: 500, marginTop: 32 }}>
+        {[1, 2, 3].map((v) => (
+          <Image key={v} src={`/image${v}.png`} alt='carousel' draggable={false} />
+        ))}
+      </CarouselCardList>
     </MainLayout>
   );
 }
 
 const MainLayout = styled.main`
   ${({ theme }) => css`
-    position: relative;
     width: 100%;
     height: 100%;
     background-color: ${theme.palette.orange200};
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   `}
 `;
 
-const Circle = styled(TestFramerComponent)`
-  position: fixed;
-  top: 50%;
-  right: 50%;
+const Image = styled.img`
+  max-width: 100%;
 `;
 
 export default MainPage;
