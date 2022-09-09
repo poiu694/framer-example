@@ -7,7 +7,7 @@ function MainPage() {
   return (
     <MainLayout>
       <Title title='Infinite Carousel' />
-      <CarouselCardList style={{ width: 500, height: 500, marginTop: 32 }}>
+      <CarouselCardList style={{ width: 500, height: 500, marginTop: 32 }} autoPlay={false}>
         {[1, 2, 3].map((v) => (
           <Image key={v} src={`/image${v}.png`} alt='carousel' draggable={false} />
         ))}

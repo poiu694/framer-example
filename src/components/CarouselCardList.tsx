@@ -10,6 +10,7 @@ import React, {
   useState,
 } from 'react';
 import CarouselCard from './CarouselCard';
+import CarouselNavigation from './CarouselNavigation';
 
 const transition: AnimationOptions<number> = {
   type: 'spring',
@@ -67,6 +68,10 @@ function CarouselCardList({
     }
   };
 
+  const handleClickNavigationDot = (nextIndex: number) => {
+    setIndex(nextIndex);
+  };
+
   useEffect(() => {
     const controls = animate(x, calculateNextX(), transition);
     return controls.stop;
@@ -87,6 +92,11 @@ function CarouselCardList({
           {React.cloneElement(child as ReactElement)}
         </CarouselCard>
       ))}
+      <CarouselNavigation
+        activeIndex={index}
+        length={childrens.length}
+        onDotClick={handleClickNavigationDot}
+      />
     </Wrapper>
   );
 }
