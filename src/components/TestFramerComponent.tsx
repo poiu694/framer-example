@@ -27,9 +27,6 @@ const TestBox = styled(motion.div)`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   background-color: #fafafa;
 `;
 
