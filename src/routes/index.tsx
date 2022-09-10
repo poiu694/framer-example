@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
-import MainPage from '../pages/MainPage';
+import { CarouselPage, MainPage } from '../pages';
 
 function Router() {
   return (
     <Routes>
       <Route path='/' element={<MainPage />} />
+      <Route path='/carousel' element={<CarouselPage />} />
     </Routes>
   );
 }

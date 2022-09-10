@@ -1,22 +1,16 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { CarouselCardList } from '../components';
-import Title from '../components/common/Title';
+import { Typography } from '../components';
 
 function MainPage() {
   return (
-    <MainLayout>
-      <Title title='Infinite Carousel' />
-      <CarouselCardList style={{ width: 500, height: 500, marginTop: 32 }} autoPlay={false}>
-        {[1, 2, 3].map((v) => (
-          <Image key={v} src={`/image${v}.png`} alt='carousel' draggable={false} />
-        ))}
-      </CarouselCardList>
-    </MainLayout>
+    <Layout>
+      <Typography type='h5'>hi</Typography>
+    </Layout>
   );
 }
 
-const MainLayout = styled.main`
+const Layout = styled.main`
   ${({ theme }) => css`
     width: 100%;
     height: 100%;
@@ -26,10 +20,6 @@ const MainLayout = styled.main`
     justify-content: center;
     align-items: center;
   `}
-`;
-
-const Image = styled.img`
-  max-width: 100%;
 `;
 
 export default MainPage;
