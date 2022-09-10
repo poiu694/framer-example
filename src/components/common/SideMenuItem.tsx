@@ -9,6 +9,7 @@ import Typography from './Typography';
 interface Props {
   color: PalleteValueType;
   menu: Menu;
+  showOffMenuContent: () => void;
 }
 
 const itemAnimation = {
@@ -28,8 +29,13 @@ const itemAnimation = {
   },
 };
 
-function SideMenuItem({ color, menu }: Props) {
+function SideMenuItem({ color, menu, showOffMenuContent }: Props) {
   const navigate = useNavigate();
+
+  const handleClickMenuItem = (href: string) => {
+    navigate(href);
+    showOffMenuContent();
+  };
 
   return (
     <Wrapper
@@ -38,7 +44,7 @@ function SideMenuItem({ color, menu }: Props) {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <ButtonWrapper onClick={() => navigate(menu.href)}>
+      <ButtonWrapper onClick={() => handleClickMenuItem(menu.href)}>
         <CircleBullet color={color} />
         <ItemTitle type='body3' color={color} textAlign='center'>
           {menu.title}

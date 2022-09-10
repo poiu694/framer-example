@@ -29,7 +29,7 @@ const sideAnimation = {
 
 const MENUS: Menu[] = [
   { title: 'Home', href: '/' },
-  { title: 'Home2', href: '/2' },
+  { title: 'Carousel', href: '/carousel' },
   { title: 'Home3', href: '/3' },
   { title: 'Home4', href: '/4 ' },
 ];
@@ -49,6 +49,10 @@ function SideMenuWithToggleButton() {
     setIsShowContent((prev) => !prev);
   };
 
+  const showOffMenuContent = () => {
+    setIsShowContent(false);
+  };
+
   return (
     <Wrapper
       initial={true}
@@ -60,7 +64,12 @@ function SideMenuWithToggleButton() {
       <SideMenuToggleButton isShowContent={isShowContent} onClick={handleClickToggleButton} />
       <SideMenuList isShowContent={isShowContent}>
         {MENUS.map((menu, idx) => (
-          <SideMenuItem key={menu.title} color={COLORS[idx % COLORS.length]} menu={menu} />
+          <SideMenuItem
+            key={menu.title}
+            color={COLORS[idx % COLORS.length]}
+            menu={menu}
+            showOffMenuContent={showOffMenuContent}
+          />
         ))}
       </SideMenuList>
     </Wrapper>
