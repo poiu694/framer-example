@@ -20,8 +20,6 @@ type StyleProps = Pick<Props, 'width' | 'disabled'>;
 const Wrapper = styled.button<StyleProps>`
   ${({ disabled, width }) => css`
     width: ${typeof width === 'number' ? width : `${width}px`};
-    border: none;
-    outline: none;
     cursor: ${disabled ? 'default' : 'pointer'};
   `}
 `;
