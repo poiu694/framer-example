@@ -10,7 +10,6 @@ type SemanticTag = 'div' | 'section' | 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' 
 
 interface Props extends ComponentProps<'div'> {
   type: FontKeyType;
-  semanticTag: SemanticTag;
   textAlign?: CSSProperties['textAlign'];
   color?: PalleteValueType;
 }
