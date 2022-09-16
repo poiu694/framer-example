@@ -1,14 +1,19 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { motion, useScroll } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { ScrollAnimationBoxList } from '../components';
 
 function ScrollAnimationPage() {
   const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <Layout>
-      <ProgressBar className='progress-bar' style={{ scaleX: scrollYProgress }} />
+      <ProgressBar style={{ scaleX }} />
       <ScrollAnimationBoxList />
     </Layout>
   );
@@ -17,7 +22,7 @@ function ScrollAnimationPage() {
 const Layout = styled.main`
   ${({ theme }) => css`
     width: 100%;
-    height: 100%;
+    overflow-y: hidden;
     background-color: ${theme.palette.orange200};
   `}
 `;
@@ -30,7 +35,7 @@ const ProgressBar = styled(motion.div)`
     right: 0;
     height: 10px;
     background: ${theme.colors.primary.red};
-    transform-origin: 0%;
+    z-index: 100;
   `}
 `;
 

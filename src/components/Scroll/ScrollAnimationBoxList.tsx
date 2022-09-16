@@ -23,12 +23,8 @@ function ScrollAnimationBoxList() {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-
-  display: flex;
-  flex-direction: column;
+  display: block;
+  margin-bottom: 200px;
 `;
 
 export default ScrollAnimationBoxList;
