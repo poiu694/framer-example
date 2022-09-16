@@ -30,7 +30,7 @@ const sideAnimation = {
 const MENUS: Menu[] = [
   { title: 'Home', href: '/' },
   { title: 'Carousel', href: '/carousel' },
-  { title: 'Home3', href: '/3' },
+  { title: 'Scroll', href: '/scroll' },
   { title: 'Home4', href: '/4 ' },
 ];
 const COLORS = [
@@ -77,7 +77,7 @@ function SideMenuWithToggleButton() {
 }
 
 const Wrapper = styled(motion.section)`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
